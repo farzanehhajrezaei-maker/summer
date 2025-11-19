@@ -1,0 +1,111 @@
+app:
+  description: if you need an assistant to give you a summary based on the title and
+    abstract of a research, you can trust me. :)
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: chat
+  name: summer
+  use_icon_as_answer_icon: true
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:0.2.6@e2665624a156f52160927bceac9e169bd7e5ae6b936ae82575e14c90af390e6e
+    version: null
+kind: app
+model_config:
+  agent_mode:
+    enabled: false
+    max_iteration: 10
+    strategy: function_call
+    tools: []
+  annotation_reply:
+    enabled: false
+  chat_prompt_config: {}
+  completion_prompt_config: {}
+  dataset_configs:
+    datasets:
+      datasets: []
+    retrieval_model: multiple
+    top_k: 4
+  dataset_query_variable: ''
+  external_data_tools: []
+  file_upload:
+    allowed_file_extensions:
+    - .JPG
+    - .JPEG
+    - .PNG
+    - .GIF
+    - .WEBP
+    - .SVG
+    - .MP4
+    - .MOV
+    - .MPEG
+    - .WEBM
+    allowed_file_types: []
+    allowed_file_upload_methods:
+    - remote_url
+    - local_file
+    enabled: false
+    image:
+      detail: high
+      enabled: false
+      number_limits: 3
+      transfer_methods:
+      - remote_url
+      - local_file
+    number_limits: 3
+  model:
+    completion_params:
+      stop: []
+    mode: chat
+    name: gpt-4
+    provider: langgenius/openai/openai
+  more_like_this:
+    enabled: false
+  opening_statement: Hello.How can i help you?
+  pre_prompt: "```xml\n<instruction>\nYou are given the title and abstract of a paper,\
+    \ research, or thesis. Your task is to read and understand both the title and\
+    \ abstract and produce a single-line summary that concisely captures the core\
+    \ idea or contribution of the work. \n\nFollow these steps:\n1. Carefully read\
+    \ the title to identify the main topic or subject area.\n2. Analyze the abstract\
+    \ to understand the key objectives, methods, findings, or conclusions.\n3. Synthesize\
+    \ the information from both the title and the abstract into a single, clear, and\
+    \ concise sentence that accurately summarizes the work.\n4. Keep the summary to\
+    \ one complete sentence.\n5. Use your own words and avoid repeating long phrases\
+    \ directly from the title or abstract.\n6. Do not include any XML tags in the\
+    \ summary output.\n7. Avoid overly technical jargon unless necessary for accuracy.\n\
+    8. Ensure the summary is understandable for a general academic audience.\n\n</instruction>\n\
+    \n<input>\n<title>{{paper title}}</title>\n<abstract>{{paper abstract}}</abstract>\n\
+    </input>\n\n<example>\n<input>\n<title>Deep Learning for Image Classification:\
+    \ A Review</title>\n<abstract>This paper provides a comprehensive survey on recent\
+    \ developments in deep learning techniques applied to image classification tasks,\
+    \ covering architectures, training strategies, datasets, and performance evaluations\
+    \ across various domains.</abstract>\n</input>\n<output>\nA comprehensive review\
+    \ of deep learning methods and advancements for image classification tasks.\n\
+    </output>\n</example>\n\n<example>\n<input>\n<title>Economic Impacts of Climate\
+    \ Change on Agricultural Production</title>\n<abstract>This study analyzes how\
+    \ climate change variables such as temperature and precipitation affect the yield\
+    \ and profitability of key agricultural commodities in North America, employing\
+    \ econometric models and climate projections to estimate future impacts.</abstract>\n\
+    </input>\n<output>\nAn analysis of how climate change affects agricultural productivity\
+    \ and profitability using climate projections and econometric modeling.\n</output>\n\
+    </example>\n\n<output>\n{{summary one_line}}\n</output>\n```"
+  prompt_type: simple
+  retriever_resource:
+    enabled: true
+  sensitive_word_avoidance:
+    configs: []
+    enabled: false
+    type: ''
+  speech_to_text:
+    enabled: false
+  suggested_questions: []
+  suggested_questions_after_answer:
+    enabled: false
+  text_to_speech:
+    enabled: false
+    language: ''
+    voice: ''
+  user_input_form: []
+version: 0.4.0
